@@ -304,8 +304,7 @@ def _spinup_gym_behind_policy_proxy(
         == "1",
         follow_up_tool=os.environ.get("SC_TURN_RECOVERY_FOLLOW_UP_TOOL") or None,
         events_path=Path(
-            os.environ.get("SC_GYM_RECOVERY_TEST_EVENTS")
-            or os.environ["SC_TURN_RECOVERY_TEST_EVENTS"]
+            os.environ["SC_GYM_RECOVERY_TEST_EVENTS"]
         ),
     ).start()
     _policy_proxies.append(proxy)
@@ -323,8 +322,7 @@ def _setup_with_gym_recovery_hook(*args: Any, **kwargs: Any) -> Any:
     manager = actor_args.rollout_manager
     impl = manager._impl
     events_path = Path(
-        os.environ.get("SC_GYM_RECOVERY_TEST_EVENTS")
-        or os.environ["SC_TURN_RECOVERY_TEST_EVENTS"]
+        os.environ["SC_GYM_RECOVERY_TEST_EVENTS"]
     )
     instrumented = _InstrumentedNemoGymRolloutImpl(
         impl,
